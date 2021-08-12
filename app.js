@@ -28,7 +28,7 @@ const isPalindrome = (str) => {
 
 // To convert date to string format with corrections for < 10 digits
 const toStr = (date) => {
-  const dateStr = { day: "", month: "", year: "" };
+  let dateStr = { day: "", month: "", year: "" };
 
   if (date.day < 10) {
     dateStr.day = "0" + date.day;
@@ -84,9 +84,9 @@ const isLeapYear = (year) => {
 
 // For next closest palindrome date
 const getNextDate = (date) => {
-  day = date.day+1;
-  month = date.month;
-  year = date.year;
+  let day = date.day+1;
+  let month = date.month;
+  let year = date.year;
 
   daysPerMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
@@ -125,8 +125,8 @@ const getNextPalindromeDate = (date) => {
 
   while (1) {
     count++;
-    const dateStr = toStr(nextDate);
-    const dates = checkPalindromeForAllFormats(dateStr);
+    let dateStr = toStr(nextDate);
+    let dates = checkPalindromeForAllFormats(dateStr);
     
     for (let i = 0; i < dates.length; i++){
       if (dates[i]) {
@@ -134,14 +134,15 @@ const getNextPalindromeDate = (date) => {
       }
     }
     nextDate = getNextDate(nextDate);
+
   }
 }
 
 // For previous closest palindrome date
 const getPrevDate = (date) => {
-  day = date.day - 1;
-  month = date.month;
-  year = date.year;
+  let day = date.day - 1;
+  let month = date.month;
+  let year = date.year;
 
   daysPerMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
@@ -175,8 +176,8 @@ const getPrevPalindromeDate = (date) => {
 
   while (1) {
     count++;
-    const dateStr = toStr(prevDate);
-    const dates = checkPalindromeForAllFormats(dateStr);
+    let dateStr = toStr(prevDate);
+    let dates = checkPalindromeForAllFormats(dateStr);
 
     for (let i = 0; i < dates.length; i++) {
       if (dates[i]) {
@@ -195,8 +196,9 @@ const showMessage = (response) => {
   } else {
     const [cnt, date] = response;
 
-    output.innerText = `Th nearest palindrome date was ${date.day}-${date.month}-${date.year}. Oops!
-    You missed by ${cnt > 1 ? `${cnt} days`: "1 day"}.`;
+    output.innerText = `Oops! You missed by ${
+      cnt > 1 ? `${cnt} days` : "1 day "
+    }. The nearest palindrome date was ${date.day}-${date.month}-${date.year}. `;
   }
 }
 
@@ -205,20 +207,18 @@ function clickHandler(e){
 
   if (ddmmyy !== '') {
     let bdate = ddmmyy.split('-');
-    let day = bdate[0];
+    let day = bdate[2];
     let month = bdate[1];
-    let year = bdate[2];
-
+    let year = bdate[0];
     const date = {
       day: Number(day),
       month: Number(month),
       year: Number(year)
     };
-
     const isPalindrome = false;
 
     let dateStr = toStr(date);
-    const dates = checkPalindromeForAllFormats(dateStr);
+    let dates = checkPalindromeForAllFormats(dateStr);
 
     for (let i = 0; i < dates.length; i++){
       if (dates[i]) {
