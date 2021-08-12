@@ -3,24 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>oyeLucky!</title>
+    <title>play-on-birthday</title>
     <link rel="stylesheet" type="text/css" href="/styles.css" />
   </head>
   <body>
     <div class="container">
       <header>
-        <h1>is your birthday lucky?</h1>
+        <h1>play-on-birthday</h1>
       </header>
       <!-- Input -->
       <section>
-        <h4>your birthday ?</h4>
+        <h4>your birth date ?</h4>
         <input type="date" class="input__box" />
       </section>
       <!-- Processing -->
-      <button id="check" class="btn primary__btn">check</button>
+      <button id="find" class="btn primary__btn">find</button>
       <button id="reset" class="btn secondary__btn">reset</button>
       <!-- Output -->
-      <h1 class="message"></h1>
+      <div class="output">
+        <img class="loader" src="assets/loader.gif" alt="loader">
+        <p class="message"></p>
+      </div>
+      
       <!-- Footer -->
       <footer>
         <div>Created by Adithya Mallya</div>

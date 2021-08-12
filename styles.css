@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap");
 
 :root {
-  --primary: #fbbf24;
-  --bg-color: #fffbeb;
-  --font-color: #f59e0b;
+  --primary: #DC2626;
+  --bg-color: #FEF2F2;
+  --font-color: #DC2626;
 }
 
 * {
@@ -82,10 +82,18 @@ section > .input__box {
   border: 1px solid var(--primary);
 }
 
+.output{
+  margin: 1.5rem;
+}
+
+.loader{
+  display: none;
+  width: 3rem;
+}
+
 .message {
-  color: var(--primary);
-  margin-bottom: 4rem;
   padding: 0.5rem 0.5rem;
+  font-weight: 600;
 }
 
 footer {
