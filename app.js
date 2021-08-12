@@ -2,6 +2,8 @@ const date = document.querySelector("input[type=date]");
 const find = document.querySelector("#find");
 const reset = document.querySelector("#reset");
 const accept = document.querySelector("#hide");
+const output = document.querySelector(".message");
+
 
 reset.addEventListener("click", () => {
   date.value = null;
@@ -189,7 +191,6 @@ const getPrevPalindromeDate = (date) => {
 };
 
 const showMessage = (response) => {
-  const output = document.querySelector(".message");
 
   if (response.length == 1) {
     output.innerText = response[0];
@@ -202,7 +203,21 @@ const showMessage = (response) => {
   }
 }
 
-function clickHandler(e){
+// Loader
+const loader = () => {
+  const loading = document.querySelector(".loader");
+
+  output.style.display = "none";
+  loading.style.display = "inline";
+ 
+  setTimeout(() => {
+    loading.style.display = "none";
+    output.style.display = "inline";
+  },1200);
+}
+
+function clickHandler(e) {
+  loader();
   const ddmmyy = date.value;
 
   if (ddmmyy !== '') {
