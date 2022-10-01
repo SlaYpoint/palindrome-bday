@@ -217,10 +217,10 @@ const loader = () => {
 }
 
 function clickHandler(e) {
-  loader();
   const ddmmyy = date.value;
 
   if (ddmmyy !== '') {
+    loader();
     let bdate = ddmmyy.split('-');
     let day = bdate[2];
     let month = bdate[1];
@@ -230,7 +230,7 @@ function clickHandler(e) {
       month: Number(month),
       year: Number(year)
     };
-    const isPalindrome = false;
+    let isPalindrome = false;
 
     let dateStr = toStr(date);
     let dates = checkPalindromeForAllFormats(dateStr);
@@ -253,6 +253,8 @@ function clickHandler(e) {
       }
     } else {
       showMessage(["Yay!, Your birthday is a palindrome."]);
-    }
+    } 
+  } else {
+    showMessage(["Select the date."]);
   }
 };
